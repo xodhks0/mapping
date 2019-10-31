@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>mapping</display-name>
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/index.jsp</welcome-file>
+		<welcome-file>/WEB-INF/view/index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<servlet>
@@ -15,5 +15,13 @@
 	<servlet-mapping>
 		<servlet-name>TestController</servlet-name>
 		<url-pattern>/test/*</url-pattern>
+	</servlet-mapping>
+		<servlet>
+		<servlet-name>URIContorller</servlet-name>
+		<servlet-class>com.mapp.bdi.controller.URIContorller</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>URIContorller</servlet-name>
+		<url-pattern>/uri/*</url-pattern>
 	</servlet-mapping>
 </web-app>

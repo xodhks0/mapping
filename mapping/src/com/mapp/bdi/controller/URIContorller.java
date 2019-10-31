@@ -9,30 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mapp.bdi.service.TestService;
-
-public class TestController extends HttpServlet {
+public class URIContorller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+	private static final String prefix = "/WEB-INF/view";
+	private static final String suffix = ".jsp";
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
-		String cmd = uri.substring(6);
-		TestService ts = new TestService();
-		if("list".equals(cmd)) {
-			request.setAttribute("list", ts.getList());
-		}
-//		System.out.println(cmd);
-//		request.setAttribute("msg", "TestContoller에서 시작");
-		String path = "/uri/target";
-		RequestDispatcher rd = request.getRequestDispatcher(path);
+		uri = prefix + uri.substring(4) + suffix;
+		String msg = (String)request.getAttribute("msg");
+		msg += ", URIController를 거침";
+		request.setAttribute("msg", msg);
+		RequestDispatcher rd = request.getRequestDispatcher(uri);
 		rd.forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-	public static void main(String[] args) {
-		TestController tc = new TestController();
-		System.out.println(tc);
-	}
+
 }

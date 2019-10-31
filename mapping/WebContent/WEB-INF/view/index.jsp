@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/test/asdf"> TestController!</a>
+<a href="/test/list"> TestController!</a>
 </body>
 </html>
